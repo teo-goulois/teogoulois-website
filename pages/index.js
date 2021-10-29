@@ -77,14 +77,15 @@ function Page() {
         </Heading>
         <Paragraph>
           Hello, I'm Téo and a self-taught developer looking for my first
-          professional experience, i started learning coding during the first
-          lockdown in France. i started with python then i followed the twelve
-          week of CS50 and then i started learning web with react. react is the
-          technology that i studied the most with nodejs for the backend. if i
-          want to work in this domain it's because during my journey of learning
-          i liked to worked, improving my comprhension of the technologie and
-          everything you do is in way different than the last time, i thing we
-          can be bored, and for that i wanted tobe part of this wide wolrd.
+          professional experience, I started learning to code during the first
+          lockdown in France. I started with python then I followed the twelve
+          week of CS50 and then I started learning web with React. React is the
+          technology that I studied the most with NodeJS for the backend part.
+          If I want to work in this domain it's because during my journey of
+          learningI liked to worked and improving my comprehension of the
+          technologies. Morever everything you do, is in way different from the
+          last time, i think we can't be bored, and for that I wanted to be part
+          of this wide world.
         </Paragraph>
         <Box align="center" my={4}>
           <NextLink href="/works">
