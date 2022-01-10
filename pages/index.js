@@ -65,7 +65,7 @@ function Page() {
             maxWidth="90px"
             display="inline-block"
             borderRadius="full"
-            src="/images/moi3.jpg"
+            src="/images/profile-pic.png"
             alt="Profile image"
           />
         </Box>
@@ -101,7 +101,8 @@ function Page() {
           technologies
         </Heading>
         <Paragraph>
-          React, TypeScript, nodeJS, Socket.io, Redux, MongoDB, Flutter, Python
+          React, TypeScript, nodeJS, Socket.io, Redux, MongoDB, Flutter, Python,
+          AWS, Firebase
         </Paragraph>
       </Section>
 
@@ -111,26 +112,10 @@ function Page() {
         </Heading>
         <Box>
           <Carousel show={2} infiniteLoop={true}>
-            <ImgCarousel
-              text="test text"
-              img="https://picsum.photos/seed/picsum/200/300"
-            />
-            <ImgCarousel
-              text="test text"
-              img="https://picsum.photos/seed/1/200/300"
-            />
-            <ImgCarousel
-              text="test text"
-              img="https://picsum.photos/seed/2/200/300"
-            />
-            <ImgCarousel
-              text="test text"
-              img="https://picsum.photos/seed/3/200/300"
-            />
-            <ImgCarousel
-              text="test text"
-              img="https://picsum.photos/seed/4/200/300"
-            />
+            <ImgCarousel text="Prechat" img="/images/works/prechat.jpeg" />
+            <ImgCarousel text="Rest country" img="/images/works/country.jpeg" />
+            <ImgCarousel text="Studhelp" img="/images/works/studhelp.jpeg" />
+            <ImgCarousel text="Ip-tracker" img="/images/works/tracker.jpeg" />
           </Carousel>
         </Box>
       </Section>
