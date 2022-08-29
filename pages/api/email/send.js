@@ -6,7 +6,7 @@ export default function handler(req, res) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
     const msg = {
       to: 'teogoulois@gmail.com', // Change to your recipient
-      from: 'teogoulois@gmail.com', // Change to your verified sender
+      from: 'teo.goulois.dev@gmail.com', // Change to your verified sender
       subject: `from ${from}, name ${name}`,
       text: `message: ${message}`,
       html: `<strong>and easy to do anywhere, even with Node.js</strong><p>message: ${message}</p>`
