@@ -10,7 +10,8 @@ import {
   List,
   ListItem,
   Icon,
-  useColorModeValue
+  useColorModeValue,
+  useToast
 } from '@chakra-ui/react'
 import axios from 'axios'
 import { ChevronRightIcon } from '@chakra-ui/icons'
@@ -23,14 +24,34 @@ import ImgCarousel from '../components/imgCarousel'
 import { useState } from 'react'
 
 function Page() {
+  const toast = useToast()
   const [formData, setFormData] = useState({ from: '', name: '', message: '' })
+  const [loading, setLoading] = useState(false)
 
   const handleEmail = async () => {
-    const res = await axios.post(`http://localhost:3000/api/email/send`, {
+    setLoading(true)
+    const res = await axios.post(`/api/email/send`, {
       from: formData.from,
       name: formData.name,
       message: formData.message
     })
+    if (res.status === 200) {
+      toast({
+        title: 'message send.',
+        status: 'success',
+        duration: 9000,
+        isClosable: true
+      })
+    } else {
+      toast({
+        title: 'an error occured please try again later.',
+        description: res.data.error,
+        status: 'error',
+        duration: 9000,
+        isClosable: true
+      })
+    }
+    setLoading(false)
   }
 
   return (
@@ -50,7 +71,7 @@ function Page() {
           <Heading as="h2" variant="page-title">
             teo goulois
           </Heading>
-          <p>junior developper react / fullstack </p>
+          <p>junior developper react / Nextjs / fullstack </p>
         </Box>
         <Box
           flexShrink={0}
@@ -76,16 +97,15 @@ function Page() {
           About Me
         </Heading>
         <Paragraph>
-          Hello, I'm Téo and a self-taught developer looking for my first
-          professional experience, I started learning to code during the first
-          lockdown in France. I started with python then I followed the twelve
-          week of CS50 and then I started learning web with React. React is the
-          technology that I studied the most with NodeJS for the backend part.
-          If I want to work in this domain it's because during my journey of
-          learningI liked to worked and improving my comprehension of the
-          technologies. Morever everything you do, is in way different from the
-          last time, i think we can't be bored, and for that I wanted to be part
-          of this wide world.
+          Hello, I'm Téo and a self-taught developer looking for professional
+          experience, I started learning to code during the first lockdown in
+          France. I started with python then I followed the twelve week of CS50
+          and then I started learning web with React. React is the technology
+          that I studied the most with NodeJS for the backend part. If I want to
+          work in this domain it's because during my journey of learningI liked
+          to worked and improving my comprehension of the technologies. Morever
+          everything you do, is in way different from the last time, i think we
+          can't be bored, and for that I wanted to be part of this wide world.
         </Paragraph>
         <Box align="center" my={4}>
           <NextLink href="/works">
@@ -102,7 +122,7 @@ function Page() {
         </Heading>
         <Paragraph>
           React, TypeScript, nodeJS, Socket.io, Redux, MongoDB, Flutter, Python,
-          AWS, Firebase
+          AWS, Firebase...
         </Paragraph>
       </Section>
 
@@ -112,10 +132,46 @@ function Page() {
         </Heading>
         <Box>
           <Carousel show={2} infiniteLoop={true}>
-            <ImgCarousel text="Prechat" img="/images/works/prechat.jpeg" />
-            <ImgCarousel text="Rest country" img="/images/works/country.jpeg" />
-            <ImgCarousel text="Studhelp" img="/images/works/studhelp.jpeg" />
-            <ImgCarousel text="Ip-tracker" img="/images/works/tracker.jpeg" />
+            <ImgCarousel
+              text="Tweeter"
+              img="/images/works/tweeter.png"
+              url="tweeter"
+            />
+            <ImgCarousel
+              text="Weather App"
+              img="/images/works/weather.png"
+              url="weather-app"
+            />
+            <ImgCarousel
+              text="Country Quiz"
+              img="/images/works/countryQuiz.png"
+              url="countryQuiz"
+            />
+            <ImgCarousel
+              text="Random Quote Generator"
+              img="/images/works/quoteGenerator.png"
+              url="quoteGenerator"
+            />
+            <ImgCarousel
+              text="Prechat"
+              img="/images/works/prechat.jpeg"
+              url="tweeter"
+            />
+            <ImgCarousel
+              text="Rest country"
+              img="/images/works/country.jpeg"
+              url="rest-country"
+            />
+            <ImgCarousel
+              text="Studhelp"
+              img="/images/works/studhelp.jpeg"
+              url="prechat"
+            />
+            <ImgCarousel
+              text="Ip-tracker"
+              img="/images/works/tracker.jpeg"
+              url="ip-tracker"
+            />
           </Carousel>
         </Box>
       </Section>
@@ -144,7 +200,7 @@ function Page() {
             rightIcon={<ChevronRightIcon />}
             colorScheme="gray"
           >
-            send
+            {loading ? <p>sending...</p> : <p>send</p>}
           </Button>
         </Box>
       </Section>

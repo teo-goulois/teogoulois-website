@@ -1,4 +1,4 @@
-import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid, Divider, Link } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
@@ -9,9 +9,69 @@ import country from '../public/images/works/country.jpeg'
 import studhelp from '../public/images/works/studhelp.jpeg'
 import tracker from '../public/images/works/tracker.jpeg'
 import prechat from '../public/images/works/prechat.jpeg'
+import tweeter from '../public/images/works/tweeter.png'
+import weather from '../public/images/works/weather.png'
+import countryQuiz from '../public/images/works/countryQuiz.png'
+import quoteGenerator from '../public/images/works/quoteGenerator.png'
 
 const Works = () => (
   <Layout title="Works">
+    <Container>
+      <Heading as="h3" fontSize={20} mb={4}>
+        devChallenges
+      </Heading>
+      <Heading as="p" fontWeight={400} fontSize={14} mb={4}>
+        some challenges create on{' '}
+        <Link as={'u'} href="https://devchallenges.io/" isExternal>
+          devChallenges.io
+        </Link>
+      </Heading>
+
+      <SimpleGrid columns={[1, 1, 2]} gap={6}>
+        <Section>
+          <WorkGridItem id="tweeter" title="Tweeter" thumbnail={tweeter}>
+            It's a simplifed clone of tweeter created after a challenge on
+            devChallenges.io
+          </WorkGridItem>
+        </Section>
+
+        <Section delay={0.1}>
+          <WorkGridItem
+            id="weather-app"
+            title="Weather App"
+            thumbnail={weather}
+          >
+            A simple weather application based on your current location.
+          </WorkGridItem>
+        </Section>
+
+        <Section>
+          <WorkGridItem
+            id="countryQuiz"
+            title="Country Quiz"
+            thumbnail={countryQuiz}
+          >
+            Test your knowledge of countries with this little Country Quiz.
+          </WorkGridItem>
+        </Section>
+
+        <Section delay={0.1}>
+          <WorkGridItem
+            id="quoteGenerator"
+            thumbnail={quoteGenerator}
+            title="Random Quote Generator"
+          >
+            you lack some inspiration, find them with random quote generator.
+          </WorkGridItem>
+        </Section>
+      </SimpleGrid>
+    <Heading fontSize={16} fontWeight="500" mb={4} >
+      If you want to see more of my work you can check my github{' '}
+      <Link href='https://github.com/teo-goulois' isExternal >teogoulois</Link>{' '}
+    </Heading>
+    </Container>
+
+
     <Container>
       <Heading as="h3" fontSize={20} mb={4}>
         Works
