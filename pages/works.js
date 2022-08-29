@@ -3,8 +3,6 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
 
-import test from '../public/images/test.jpg'
-import challenge5 from '../public/images/works/challenge5.jpeg'
 import country from '../public/images/works/country.jpeg'
 import studhelp from '../public/images/works/studhelp.jpeg'
 import tracker from '../public/images/works/tracker.jpeg'
